@@ -123,7 +123,6 @@ runs:
       env:
         COPILOT_VERSION: ${{ inputs.copilot-version }}
     - name: Configure Copilot
-      shell: bash
       run: |
         echo "::group::Configuring Copilot"
         mkdir -p $XDG_CONFIG_HOME/.copilot
@@ -152,6 +151,7 @@ runs:
         echo "$CONFIG" > $XDG_CONFIG_HOME/.copilot/config.json
         cat $XDG_CONFIG_HOME/.copilot/config.json
         echo "::endgroup::"
+      shell: bash
       env:
         CONFIG: ${{ inputs.copilot-config }}
         MCP_CONFIG: ${{ inputs.mcp-config }}
